@@ -552,8 +552,7 @@ body {
 
 .gallery-link {
   display: block;
-
-  transition: box-shadow var(--tra) transform var(--tra);
+  transition: box-shadow var(--tra), transform var(--tra);
 }
 
 .gallery-link:hover,
@@ -657,12 +656,14 @@ body {
   align-items: center;
   margin-left: auto;
   transition: background-color var(--tra), border var(--tra);
+  fill: #2e2f42;
 }
 
 .modal-close:hover,
 .modal-close:focus {
   background-color: #404bbf;
   border: none;
+  fill: #ffffff;
 }
 
 .is-hidden {
@@ -673,9 +674,4 @@ body {
 
 .close-icon {
   transition: fill var(--tra);
-}
-
-.close-icon:hover,
-.close-icon:focus {
-  fill: #ffffff;
 }
