@@ -552,7 +552,7 @@ body {
 
 .gallery-link {
   display: block;
-  transition: box-shadow var(--tra), transform var(--tra);
+  transition: box-shadow var(--tra);
 }
 
 .gallery-link:hover,
