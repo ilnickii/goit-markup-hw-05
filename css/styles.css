@@ -118,11 +118,15 @@ body {
   height: 4px;
   border-radius: 2px;
   display: block;
+  bottom: -1px;
 }
 
+.emphasis {
+  position: relative;
+  color: #404bbf;
+}
 .menu-item {
   margin-right: 40px;
-  position: relative;
 }
 
 .menu-item:last-child {
@@ -212,7 +216,7 @@ body {
   margin: 0 auto;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
-  transition: color var(--tra), background-color var(--tra);
+  transition: background-color var(--tra);
 }
 
 .hero-btn:hover,
@@ -518,8 +522,8 @@ body {
   border: 1px solid #e7e9fc;
   border-radius: 4px;
 
-  transition: color var(--tra), background-color var(--tra), border var(--tra),
-    box-shadow var(--tra);
+  transition: color var(--tra), background-color var(--tra),
+    border-color var(--tra), box-shadow var(--tra);
 }
 
 .gallery-nav-btn:hover,
@@ -541,14 +545,15 @@ body {
   width: calc((100% - 2 * 24px) / 3);
 }
 
-.gallery-list-item:hover .gallery-cover-text {
-  transform: translate(0);
+.gallery-link:hover .gallery-cover-text,
+.gallery-link:focus .gallery-cover-text {
+  transform: translateY(0);
 }
 
 .gallery-link {
   display: block;
 
-  transition: box-shadow var(--tra);
+  transition: box-shadow var(--tra) transform var(--tra);
 }
 
 .gallery-link:hover,
@@ -620,8 +625,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scalex(1);
-  transition: transform 400ms;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--tra);
 
   width: 408px;
   min-height: 584px;
@@ -629,7 +634,6 @@ body {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  padding: 2px 24px;
 }
 
 .backdrop.is-hidden .modal {
@@ -637,6 +641,12 @@ body {
 }
 
 .modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  padding: 0;
+  cursor: pointer;
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -646,10 +656,26 @@ body {
   justify-content: center;
   align-items: center;
   margin-left: auto;
+  transition: background-color var(--tra), border var(--tra);
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  background-color: #404bbf;
+  border: none;
 }
 
 .is-hidden {
-  visibility: none;
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+
+.close-icon {
+  transition: fill var(--tra);
+}
+
+.close-icon:hover,
+.close-icon:focus {
+  fill: #ffffff;
 }
