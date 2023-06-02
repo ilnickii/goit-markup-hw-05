@@ -107,8 +107,22 @@ body {
   transition: color var(--tra);
 }
 
+.menu-link.emphasis::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  content: "";
+  background-color: #404bbf;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  display: block;
+}
+
 .menu-item {
   margin-right: 40px;
+  position: relative;
 }
 
 .menu-item:last-child {
@@ -527,6 +541,10 @@ body {
   width: calc((100% - 2 * 24px) / 3);
 }
 
+.gallery-list-item:hover .gallery-cover-text {
+  transform: translate(0);
+}
+
 .gallery-link {
   display: block;
 
@@ -537,6 +555,26 @@ body {
 .gallery-link:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.gallery-cover-text {
+  position: absolute;
+  top: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  background-color: #4d5ae5;
+  width: 100%;
+  height: 100%;
+  padding: 40px 32px;
+  transform: translateY(100%);
+  transition: transform var(--tra);
+}
+
+.gallery-cover {
+  position: relative;
+  overflow: hidden;
 }
 
 .gallery-title {
@@ -564,4 +602,54 @@ body {
   padding: 32px 16px;
   border: 1px solid #e7e9fc;
   border-top: none;
+}
+
+/* MODAL */
+
+.backdrop {
+  position: fixed;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  top: 0;
+  transition: opacity var(--tra), visibility var(--tra);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scalex(1);
+  transition: transform 400ms;
+
+  width: 408px;
+  min-height: 584px;
+  background-color: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 2px 24px;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -100%) scalex(0.7);
+}
+
+.modal-close {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+}
+
+.is-hidden {
+  visibility: none;
+  opacity: 0;
+  pointer-events: none;
 }
